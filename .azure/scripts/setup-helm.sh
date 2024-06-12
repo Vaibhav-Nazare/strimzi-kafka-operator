@@ -41,4 +41,7 @@ function install_helm_unittest {
 }
 
 install_helm3
-install_helm_unittest
+# Temporary skip installation of helm unittest plugin as binaries are not ppc64le supported.
+if [[ "$ARCH" != "ppc64le" ]]; then
+    install_helm_unittest
+fi
